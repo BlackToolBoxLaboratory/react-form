@@ -1,7 +1,20 @@
 {
   "name": "@blacktoolbox/react-form",
+  "packageName": "btblab-react-form",
   "version": "1.0.0",
-  "description": "btblab-react-form",
+  "description": "Form maker based on React.",
+  "keywords": [
+    "blacktoolbox",
+    "btblab",
+    "btb",
+    "react",
+    "form",
+    "input",
+    "select",
+    "checkbox",
+    "radio",
+    "textarea"
+  ],
   "main": "lib/index.js",
   "module": "esm/index.js",
   "jsnext:main": "esm/index.js",
