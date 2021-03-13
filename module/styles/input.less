@@ -9,17 +9,21 @@
     border: 1px solid #000000;
     padding: 0.5rem;
     overflow: hidden;
+    &.item-prepend {
+      border-right: none;
+    }
+    &.item-append {
+      border-left: none;
+    }
     &:first-child {
       border-top-left-radius: 0.5rem;
       border-bottom-left-radius: 0.5rem;
       padding-left: 1rem;
-      border-right: none;
     }
     &:last-child {
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
       padding-right: 1rem;
-      border-left: none;
     }
   }
 
@@ -47,6 +51,12 @@
     }
     &.item-after {
       padding-left: 0.5rem;
+    }
+    &:first-child {
+      border-left: 1px solid #000000;
+    }
+    &:last-child {
+      border-right: 1px solid #000000;
     }
   }
 }
