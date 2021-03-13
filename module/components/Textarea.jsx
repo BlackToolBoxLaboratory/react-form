@@ -5,11 +5,9 @@ import getStyle from '../utils/getStyle.js';
 import formatCamelCase from '../utils/formatCamelCase.js';
 import useFocusState from '../utils/useFoursState';
 
-const FormTextarea = forwardRef((props) => {
+const FormTextarea = forwardRef((props, ref) => {
   const {
-    id = `textarea-${Date.now()}-${Math.ceil(Math.random() * 1000)}`,
     className,
-    ref,
 
     disabled,
     ...textareaProps
@@ -26,9 +24,9 @@ const FormTextarea = forwardRef((props) => {
   };
 
   return (
-    <div ref={ref} className={classnames('btb-react-form', 'form-textarea', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-focused', (disabled) ? 'form-disabled' : '', (focusState.value) ? 'form-disabled' : ''])}>
-      <textarea id={id} disabled={disabled} className="form-textarea"
-        style={getStyle(styleObj, ['form-textarea'])} {...textareaProps} onFocus={_focus}
+    <div ref={ref} className={classnames('btb-react-form', 'form-textarea', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-focused', (disabled) ? 'textarea-disabled' : '', (focusState.value) ? 'textarea-focused' : ''])}>
+      <textarea className="textarea_input"
+        style={getStyle(styleObj, ['textarea_input'])} disabled={disabled} {...textareaProps} onFocus={_focus}
         onBlur={_blur} />
     </div>
   );

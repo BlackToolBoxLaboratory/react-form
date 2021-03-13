@@ -7,11 +7,9 @@ import useFocusState from '../utils/useFoursState';
 
 const PLACEHOLDER = '--placeholder--';
 
-const FormSelect = forwardRef((props) => {
+const FormSelect = forwardRef((props, ref) => {
   const {
-    id = `select-${Date.now()}-${Math.ceil(Math.random() * 1000)}`,
     className,
-    ref,
     children,
 
     prependNode,
@@ -24,7 +22,7 @@ const FormSelect = forwardRef((props) => {
   } = props;
   const styleObj = formatCamelCase(props.styleObj || {});
   const focusState = useFocusState();
-  const classList = [{ 'select-disabled' : disabled }];
+  const classList = [{ 'select-disabled' : disabled }, { 'select-focused' : focusState.value }];
   const refSelect = useRef();
 
   const _checkValue = () => {
@@ -45,16 +43,16 @@ const FormSelect = forwardRef((props) => {
     };
   }, []);
   return (
-    <div ref={ref} className={classnames('btb-react-form', 'form-input', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'form-disabled' : '', (focusState.value) ? 'form-focused' : ''])}>
-      <div className="input_outer" style={getStyle(styleObj, ['input_outer'])}>
+    <div ref={ref} className={classnames('btb-react-form', 'form-select', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-select', (disabled) ? 'select-disabled' : '', (focusState.value) ? 'select-focused' : ''])}>
+      <div className="select_outer" style={getStyle(styleObj, ['select_outer'])}>
         {prependNode ? <div className="outer_item item-prepend" style={getStyle(styleObj, ['outer_item', 'item-prepend'])}>{prependNode}</div> : []}
-        <div className="outer_inner" style={getStyle(styleObj, ['outer_inner'])}>
-          {beforeNode ? <div className="inner_item item-before" style={getStyle(styleObj, ['inner_item', 'item-before'])}>{prependNode}</div> : []}
+        <div className="outer_item item-inner" style={getStyle(styleObj, ['outer_item', 'item-inner'])}>
+          {beforeNode ? <div className="inner_item item-before" style={getStyle(styleObj, ['inner_item', 'item-before'])}>{beforeNode}</div> : []}
           <select
             ref={refSelect}
-            id={id}
             className="inner_item item-select"
             style={getStyle(styleObj, ['inner_item', 'item-select'])}
+            disabled={disabled}
             {...selectProps}
           >
             {placeholder ? (

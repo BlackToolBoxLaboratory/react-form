@@ -6,13 +6,13 @@ Create form with [React](https://facebook.github.io/react).
 
 Using with [NPM](https://www.npmjs.com/):
 
-    $ npm install --save @blacktoolbox/react-fomr
+    $ npm install --save @blacktoolbox/react-form
 
     // using ES6 modules
-    import Menu from '@blacktoolbox/react-form';
+    import { Input, Select, Textarea, Checkbox, Radio } from '@blacktoolbox/react-form';
 
     // using CommonJS modules
-    var Menu = require('@blacktoolbox/react-fomr');
+    var Input = require('@blacktoolbox/react-form');
 
 # Issue
 

@@ -1,0 +1,25 @@
+.form-checkbox {
+  margin: 0.25rem 0;
+  & + .form-checkbox {
+    margin: 0.25rem 0 0.25rem 0.5rem;
+  }
+  &.checkbox-inline {
+    display: inline-block;
+  }
+  &.checkbox-disabled {
+    .checkbox_input,
+    .checkbox_label {
+      cursor: not-allowed;
+    }
+  }
+  .checkbox_input {
+    cursor: pointer;
+    :disabled {
+      cursor: not-allowed;
+    }
+  }
+  .checkbox_label {
+    cursor: pointer;
+    margin-left: 0.25rem;
+  }
+}

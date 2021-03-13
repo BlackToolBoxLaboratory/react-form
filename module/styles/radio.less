@@ -1,0 +1,25 @@
+.form-radio {
+  margin: 0.25rem 0;
+  & + .form-radio {
+    margin: 0.25rem 0 0.25rem 0.5rem;
+  }
+  &.radio-inline {
+    display: inline-block;
+  }
+  &.radio-disabled {
+    .radio_input,
+    .radio_label {
+      cursor: not-allowed;
+    }
+  }
+  .radio_input {
+    cursor: pointer;
+    :disabled {
+      cursor: not-allowed;
+    }
+  }
+  .radio_label {
+    cursor: pointer;
+    margin-left: 0.25rem;
+  }
+}

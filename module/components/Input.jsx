@@ -5,11 +5,9 @@ import getStyle from '../utils/getStyle.js';
 import formatCamelCase from '../utils/formatCamelCase.js';
 import useFocusState from '../utils/useFoursState';
 
-const FormInput = forwardRef((props) => {
+const FormInput = forwardRef((props, ref) => {
   const {
-    id = `input-${Date.now()}-${Math.ceil(Math.random() * 1000)}`,
     className,
-    ref,
 
     prependNode,
     appendNode,
@@ -33,13 +31,12 @@ const FormInput = forwardRef((props) => {
   };
 
   return (
-    <div ref={ref} className={classnames('btb-react-form', 'form-input', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'form-disabled' : '', (focusState.value) ? 'form-focused' : ''])}>
+    <div ref={ref} className={classnames('btb-react-form', 'form-input', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'input-disabled' : '', (focusState.value) ? 'input-focused' : ''])}>
       <div className="input_outer" style={getStyle(styleObj, ['input_outer'])}>
         {prependNode ? <div className="outer_item item-prepend" style={getStyle(styleObj, ['outer_item', 'item-prepend'])}>{prependNode}</div> : []}
-        <div className="outer_inner" style={getStyle(styleObj, ['outer_inner'])}>
-          {beforeNode ? <div className="inner_item item-before" style={getStyle(styleObj, ['inner_item', 'item-before'])}>{prependNode}</div> : []}
+        <div className="outer_item item-inner" style={getStyle(styleObj, ['outer_item', 'item-inner'])}>
+          {beforeNode ? <div className="inner_item item-before" style={getStyle(styleObj, ['inner_item', 'item-before'])}>{beforeNode}</div> : []}
           <input
-            id={id}
             type={type}
             autoComplete={autoComplete}
             disabled={disabled}

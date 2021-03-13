@@ -1,5 +1,5 @@
-## v1.0.0
+## v0.0.1
 
-> Feb. 3, 2018
+> Mar. 13, 2018
 
 - **Minor**: Beta version online for first pushlish test.
