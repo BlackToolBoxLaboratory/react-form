@@ -1,3 +1,9 @@
+## v0.1.2
+
+> Mar. 13, 2021
+
+- **Issue**: Fixed style of input.
+
 ## v0.1.1
 
 > Mar. 13, 2021
