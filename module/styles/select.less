@@ -47,6 +47,27 @@
       font-family: inherit;
       line-height: inherit;
       border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &.select-disabled {
+    .inner_item {
+      &.item-select {
+        cursor: not-allowed;
+      }
+    }
+    .outer_item {
+      background: lighten(gray, 40%);
+      border-color: lighten(gray, 20%);
+      color: lighten(gray, 20%);
+    }
+  }
+  &.select-focused {
+    .outer_item {
+      outline: 1px solid #000000;
     }
   }
 }

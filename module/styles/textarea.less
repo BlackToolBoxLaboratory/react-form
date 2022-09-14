@@ -10,5 +10,32 @@
     font-family: inherit;
     line-height: inherit;
     border: none;
+    resize: vertical;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
   } 
+  .textarea_counter {
+    text-align: right;
+    font-size: 0.75rem;
+    color: lighten(gray, 20%);
+  }
+
+  &.textarea-readonly {
+    background: lighten(gray, 40%);
+  }
+
+  &.textarea-disabled {
+    background: lighten(gray, 40%);
+    border-color: lighten(gray, 20%);
+    color: lighten(gray, 20%);
+    .textarea_input {
+      cursor: not-allowed;
+    }
+  }
+  &.textarea-focused {
+    outline: 1px solid #000000;
+  }
 }

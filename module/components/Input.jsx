@@ -1,9 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import classnames from 'classnames';
 
 import getStyle from '../utils/getStyle.js';
 import formatCamelCase from '../utils/formatCamelCase.js';
-import useFocusState from '../utils/useFoursState';
 
 const FormInput = forwardRef((props, ref) => {
   const {
@@ -17,21 +16,24 @@ const FormInput = forwardRef((props, ref) => {
     autoComplete = 'off',
 
     disabled,
+    readOnly,
     ...inputProps
   } = props;
   const styleObj = formatCamelCase(props.styleObj || {});
-  const focusState = useFocusState();
-  const classList = [{ 'input-disabled' : disabled }, {'input-focused' : focusState.value}];
+  const [focusState, updateFocusState] = useState(false);
 
   const _focus = () => {
-    focusState.update(true);
+    updateFocusState(true);
   };
   const _blur = () => {
-    focusState.update(false);
+    updateFocusState(false);
   };
 
   return (
-    <div ref={ref} className={classnames('btb-react-form', 'form-input', className, classList)} style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'input-disabled' : '', (focusState.value) ? 'input-focused' : ''])}>
+    <div ref={ref} 
+      className={classnames('btb-react-form', 'form-input', className, [{ 'input-disabled' : disabled, 'input-readonly' : readOnly, 'input-focused' : focusState}])} 
+      style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'input-disabled' : '', (focusState) ? 'input-focused' : ''])}
+    >
       <div className="input_outer" style={getStyle(styleObj, ['input_outer'])}>
         {prependNode ? <div className="outer_item item-prepend" style={getStyle(styleObj, ['outer_item', 'item-prepend'])}>{prependNode}</div> : []}
         <div className="outer_item item-inner" style={getStyle(styleObj, ['outer_item', 'item-inner'])}>
@@ -39,6 +41,7 @@ const FormInput = forwardRef((props, ref) => {
           <input
             type={type}
             autoComplete={autoComplete}
+            readOnly={readOnly}
             disabled={disabled}
             className="inner_item item-input"
             style={getStyle(styleObj, ['inner_item', 'item-input'])}

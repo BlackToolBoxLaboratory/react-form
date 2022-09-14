@@ -4,22 +4,27 @@
     display: flex;
     flex-direction: row;
   }
+
   .outer_item {
     background-color: #ffffff;
     border: 1px solid #000000;
     padding: 0.5rem;
     overflow: hidden;
+
     &.item-prepend {
       border-right: none;
     }
+
     &.item-append {
       border-left: none;
     }
+
     &:first-child {
       border-top-left-radius: 0.5rem;
       border-bottom-left-radius: 0.5rem;
       padding-left: 1rem;
     }
+
     &:last-child {
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
@@ -38,6 +43,7 @@
     &.item-before {
       padding-right: 0.5rem;
     }
+
     &.item-input {
       appearance: none;
       background-color: transparent;
@@ -48,9 +54,38 @@
       font-family: inherit;
       line-height: inherit;
       border: none;
+
+      &:focus {
+        outline: none;
+      }
     }
+
     &.item-after {
       padding-left: 0.5rem;
+    }
+  }
+
+  &.input-readonly {
+    .outer_item {
+      background: lighten(gray, 40%);
+    }
+  }
+
+  &.input-disabled {
+    .inner_item {
+      &.item-input {
+        cursor: not-allowed;
+      }
+    }
+    .outer_item {
+      background: lighten(gray, 40%);
+      border-color: lighten(gray, 20%);
+      color: lighten(gray, 20%);
+    }
+  }
+  &.input-focused {
+    .outer_item {
+      outline: 1px solid #000000;
     }
   }
 }
