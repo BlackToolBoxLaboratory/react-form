@@ -15,7 +15,6 @@ const FormCheckbox = forwardRef((props, ref) => {
     signColor,
 
     inline,
-    readonly,
     disabled,
     ...checkboxProps
   } = props;
@@ -53,7 +52,7 @@ const FormCheckbox = forwardRef((props, ref) => {
   }, [id]);
   return (
     <div ref={ref}
-      className={classnames('btb-react-form', 'form-checkbox', className, [{ 'checkbox-disabled' : disabled, 'checkbox-readonly' : readonly, 'checkbox-inline' : inline, 'checkbox-checked' : checked }])}
+      className={classnames('btb-react-form', 'form-checkbox', className, [{ 'checkbox-disabled' : disabled, 'checkbox-inline' : inline, 'checkbox-checked' : checked }])}
       style={getStyle(styleObj, ['btb-react-form', 'form-checkbox', (disabled) ? 'checkbox-disabled' : '', (inline) ? 'checkbox-inline' : '', (checked) ? 'checkbox-checked' : ''])}
     >
       <input id={checkboxId} className="checkbox_input" style={getStyle(styleObj, ['item_input'])} disabled={disabled} {...checkboxProps} type="checkbox" checked={checked} onClick={_click}/>

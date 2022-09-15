@@ -1,3 +1,9 @@
+## v0.2.1
+
+> Sep. 15, 2022
+
+- **Issue**: Adjust details
+
 ## v0.2.0
 
 > Sep. 14, 2022

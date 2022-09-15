@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 
 import getStyle from '../utils/getStyle.js';
@@ -29,13 +29,22 @@ const FormTextarea = forwardRef((props, ref) => {
   const _blur = () => {
     updateFocusState(false);
   };
+
+  useEffect(() => {
+    if (textareaProps.defaultValue) {
+      updateValue(textareaProps.defaultValue);
+    }
+    if (textareaProps.value) {
+      updateValue(textareaProps.value);
+    }
+  }, []);
   return (
     <div ref={ref} 
       className={classnames('btb-react-form', 'form-textarea', className, [{ 'textarea-disabled' : disabled, 'textarea-readonly' : readOnly, 'textarea-focused' : focusState }])} 
       style={getStyle(styleObj, ['btb-react-form', 'form-focused', (disabled) ? 'textarea-disabled' : '', (focusState) ? 'textarea-focused' : ''])}
     >
       <textarea className="textarea_input"
-        style={getStyle(styleObj, ['textarea_input'])} disabled={disabled} {...textareaProps} onChange={_change} onFocus={_focus} onBlur={_blur} />
+        style={getStyle(styleObj, ['textarea_input'])} disabled={disabled} readOnly={readOnly} {...textareaProps} onChange={_change} onFocus={_focus} onBlur={_blur} />
       {
         showCounter?
           (

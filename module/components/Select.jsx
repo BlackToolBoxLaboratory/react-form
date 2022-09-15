@@ -17,7 +17,6 @@ const FormSelect = forwardRef((props, ref) => {
 
     placeholder,
     disabled,
-    readOnly,
     ...selectProps
   } = props;
   const styleObj = formatCamelCase(props.styleObj || {});
@@ -50,7 +49,7 @@ const FormSelect = forwardRef((props, ref) => {
   }, []);
   return (
     <div ref={ref} 
-      className={classnames('btb-react-form', 'form-select', className, [{ 'select-disabled' : disabled, 'select-readonly' : readOnly, 'select-focused' : focusState }])} 
+      className={classnames('btb-react-form', 'form-select', className, [{ 'select-disabled' : disabled, 'select-focused' : focusState }])} 
       style={getStyle(styleObj, ['btb-react-form', 'form-select', (disabled) ? 'select-disabled' : '', (focusState) ? 'select-focused' : ''])}
     >
       <div className="select_outer" style={getStyle(styleObj, ['select_outer'])}>
