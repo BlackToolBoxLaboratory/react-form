@@ -8,6 +8,17 @@
     z-index: -1;
     opacity: 0;
     margin: 0;
+    &:not(:checked) {
+      & + .checkbox_item {
+        color: unset !important;
+        .item_button {
+          opacity: 0;
+        }
+      }
+      &:not(disabled) + .checkbox_item {
+        background: unset !important;
+      }
+    }
   }
 
   .checkbox_item {
@@ -32,7 +43,7 @@
       transform-origin: center;
       top: -35%;
       left: -5%;
-      opacity: 0;
+      opacity: 1;
       &::before {
         content: "";
         position: absolute;
@@ -68,11 +79,7 @@
       cursor: not-allowed;
       background: lighten(gray, 40%);
       outline: 1px solid lighten(gray, 20%);
-    }
-  }
-  &.checkbox-checked {
-    .item_button {
-      opacity: 1;
+      opacity: 0.4;
     }
   }
 }

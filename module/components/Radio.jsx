@@ -19,11 +19,16 @@ const FormRadio = forwardRef((props, ref) => {
   } = props;
   const styleObj = formatCamelCase(props.styleObj || {});
   const [radioId, updateRadioId] = useState();
-  const [checked, updateChecked] = useState(false);
+  const [checked, updateChecked] = useState();
 
   const _click = () => {
     if (radioProps.onClick) {
       radioProps.onClick(props.value);
+    }
+  };
+  const _change = () => {
+    if (radioProps.onChange) {
+      radioProps.onChange(props.value);
     }
   };
 
@@ -40,11 +45,11 @@ const FormRadio = forwardRef((props, ref) => {
   }, [id]);
   return (
     <div ref={ref}
-      className={classnames('btb-react-form', 'form-radio', className, [{ 'radio-disabled' : disabled, 'radio-inline' : inline, 'radio-checked' : checked }])}
-      style={getStyle(styleObj, ['btb-react-form', 'form-radio', (disabled) ? 'radio-disabled' : '', (inline) ? 'radio-inline' : '', (checked) ? 'radio-checked' : ''])}
+      className={classnames('btb-react-form', 'form-radio', className, [{ 'radio-disabled' : disabled, 'radio-inline' : inline }])}
+      style={getStyle(styleObj, ['btb-react-form', 'form-radio', (disabled) ? 'radio-disabled' : '', (inline) ? 'radio-inline' : ''])}
     >
-      <input id={radioId} className="radio_input" style={getStyle(styleObj, ['radio_input'])} disabled={disabled} {...radioProps} type="radio" checked={checked} onClick={_click} />
-      <label className="radio_item" style={{ width : size || '1rem', height : size || '1rem', color : checked ? color || 'black' : '', ...getStyle(styleObj, ['radio_item']) }} htmlFor={radioId}>
+      <input id={radioId} className="radio_input" style={getStyle(styleObj, ['radio_input'])} disabled={disabled} {...radioProps} type="radio" checked={checked} onClick={_click} onChange={_change} />
+      <label className="radio_item" style={{ width : size || '1rem', height : size || '1rem', color : color || 'black', ...getStyle(styleObj, ['checkbox_item']) }} htmlFor={radioId}>
         <div className="item_button" style={getStyle(styleObj, ['item_button'])} />
       </label>
       {children ? (

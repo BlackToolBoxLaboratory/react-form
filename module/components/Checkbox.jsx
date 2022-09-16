@@ -20,7 +20,7 @@ const FormCheckbox = forwardRef((props, ref) => {
   } = props;
   const styleObj = formatCamelCase(props.styleObj || {});
   const [checkboxId, updateCheckboxId] = useState();
-  const [checked, updateChecked] = useState(false);
+  const [checked, updateChecked] = useState();
 
   const _click = () => {
     if (checkboxProps.onClick) {
@@ -52,11 +52,11 @@ const FormCheckbox = forwardRef((props, ref) => {
   }, [id]);
   return (
     <div ref={ref}
-      className={classnames('btb-react-form', 'form-checkbox', className, [{ 'checkbox-disabled' : disabled, 'checkbox-inline' : inline, 'checkbox-checked' : checked }])}
-      style={getStyle(styleObj, ['btb-react-form', 'form-checkbox', (disabled) ? 'checkbox-disabled' : '', (inline) ? 'checkbox-inline' : '', (checked) ? 'checkbox-checked' : ''])}
+      className={classnames('btb-react-form', 'form-checkbox', className, [{ 'checkbox-disabled' : disabled, 'checkbox-inline' : inline }])}
+      style={getStyle(styleObj, ['btb-react-form', 'form-checkbox', (disabled) ? 'checkbox-disabled' : '', (inline) ? 'checkbox-inline' : '' ])}
     >
       <input id={checkboxId} className="checkbox_input" style={getStyle(styleObj, ['checkbox_input'])} disabled={disabled} {...checkboxProps} type="checkbox" checked={checked} onClick={_click}/>
-      <label className="checkbox_item" style={{ width : size || '1rem', height : size || '1rem', color : checked ? color || 'black' : '', background : checked ? 'currentColor' : '', ...getStyle(styleObj, ['checkbox_item']) }} htmlFor={checkboxId}>
+      <label className="checkbox_item" style={{ width : size || '1rem', height : size || '1rem', color : color || 'black', background : 'currentColor', ...getStyle(styleObj, ['checkbox_item']) }} htmlFor={checkboxId}>
         <div className="item_button" style={{ color : signColor || 'white', ...getStyle(styleObj, ['item_button'])}}/>
       </label>
       {children ? (

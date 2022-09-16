@@ -1,8 +1,14 @@
+## v1.0.1
+
+> Sep. 16, 2022
+
+- **Issue**: Fix bug of Radio and Checkbox.
+
 ## v1.0.0
 
 > Sep. 16, 2022
 
-- **Major**: formal release.
+- **Major**: Formal release.
 
 ## v0.2.1
 
