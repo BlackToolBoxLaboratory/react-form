@@ -1,7 +1,7 @@
 {
   "name": "@blacktoolbox/react-form",
   "packageName": "btblab-react-form",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Form maker based on React.",
   "keywords": [
     "blacktoolbox",

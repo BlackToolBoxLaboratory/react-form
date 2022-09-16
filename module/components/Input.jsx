@@ -32,7 +32,7 @@ const FormInput = forwardRef((props, ref) => {
   return (
     <div ref={ref} 
       className={classnames('btb-react-form', 'form-input', className, [{ 'input-disabled' : disabled, 'input-readonly' : readOnly, 'input-focused' : focusState}])} 
-      style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'input-disabled' : '', (focusState) ? 'input-focused' : ''])}
+      style={getStyle(styleObj, ['btb-react-form', 'form-input', (disabled) ? 'input-disabled' : '', (readOnly) ? 'input-readonly' : '', (focusState) ? 'input-focused' : ''])}
     >
       <div className="input_outer" style={getStyle(styleObj, ['input_outer'])}>
         {prependNode ? <div className="outer_item item-prepend" style={getStyle(styleObj, ['outer_item', 'item-prepend'])}>{prependNode}</div> : []}

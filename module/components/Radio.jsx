@@ -44,7 +44,7 @@ const FormRadio = forwardRef((props, ref) => {
       style={getStyle(styleObj, ['btb-react-form', 'form-radio', (disabled) ? 'radio-disabled' : '', (inline) ? 'radio-inline' : '', (checked) ? 'radio-checked' : ''])}
     >
       <input id={radioId} className="radio_input" style={getStyle(styleObj, ['radio_input'])} disabled={disabled} {...radioProps} type="radio" checked={checked} onClick={_click} />
-      <label className="radio_item" style={{ width : size || '1rem', height : size || '1rem', color : checked ? color || 'black' : '', ...getStyle(styleObj, ['checkbox_item']) }} htmlFor={radioId}>
+      <label className="radio_item" style={{ width : size || '1rem', height : size || '1rem', color : checked ? color || 'black' : '', ...getStyle(styleObj, ['radio_item']) }} htmlFor={radioId}>
         <div className="item_button" style={getStyle(styleObj, ['item_button'])} />
       </label>
       {children ? (

@@ -1,14 +1,20 @@
+## v1.0.0
+
+> Sep. 16, 2022
+
+- **Major**: formal release.
+
 ## v0.2.1
 
 > Sep. 15, 2022
 
-- **Issue**: Adjust details
+- **Issue**: Adjust details.
 
 ## v0.2.0
 
 > Sep. 14, 2022
 
-- **Minor**: Enhance form
+- **Minor**: Enhance form.
 
 ## v0.1.2
 

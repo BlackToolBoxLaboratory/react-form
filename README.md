@@ -12,7 +12,7 @@ Using with [NPM](https://www.npmjs.com/):
     import { Input, Select, Textarea, Checkbox, Radio } from '@blacktoolbox/react-form';
 
     // using CommonJS modules
-    var Input = require('@blacktoolbox/react-form');
+    var Form = require('@blacktoolbox/react-form');
 
 # Issue
 
